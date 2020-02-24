@@ -2,4 +2,8 @@
 Annuaire d'employées
 
 
-Projet de démo utilisant les technologies Spring (Spring boot, Spring data JPA) avec une base de données H2.
+Projet de démo utilisant les technologies : 
+_ Spring (Spring boot, Spring data JPA)
+_ Bootstrap
+_ Thymeleaf
+_ Base de données H2
