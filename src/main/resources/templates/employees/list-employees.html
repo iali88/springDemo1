@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymelead.org">
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Employees directory</title>
+		 <!-- Required meta tags -->
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  	 	 <!-- Bootstrap CSS -->
+   		 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		
+	</head>
+	
+	<body>
+	
+		<div class="container">
+			<h3>Employee directory</h3>
+			<hr>
+			
+			<a th:href="@{/employees/showFormForAdd}" class="btn btn-primary btn-sm mb-3"> Add Employee </a>
+			<table border="1" class="table table-bordered table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th>First name</th>
+						<th>Last name</th>
+						<th>Email</th>		
+						<th>Action</th>
+					</tr>
+				</thead>
+			
+				<tbody>
+					<tr th:each="temp : ${employees}" >
+						<td th:text="${temp.firstName}"/>
+						<td th:text="${temp.lastName}"/>
+						<td th:text="${temp.email}"/>
+						<td>
+							<a th:href="@{/employees/showFormForUpdate(employeeId=${temp.id})}" 
+								class="btn  btn-info btn-sm">
+								Update
+							</a>
+							
+							<a  th:href="@{/employees/delete(employeeId=${temp.id})}"
+								class="btn  btn-danger btn-sm"
+								onclick="if (!(confirm('Are your sure ?'))) return false">
+								Delete
+							</a>
+						</td>
+					</tr>
+				</tbody>
+			
+			
+			
+			</table>		
+		</div>
+	
+	</body>
+
+</html>
